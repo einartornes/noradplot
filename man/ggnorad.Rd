@@ -2,13 +2,18 @@
 % Please edit documentation in R/ggnorad.R
 \name{ggnorad}
 \alias{ggnorad}
-\title{Wrapper function to load norad theme}
+\title{Wrapper function to load Norad theme for ggplot2.
+Also sets Norad's discrete and continuous color palettes as the default for the session.}
 \usage{
-ggnorad(style = "default")
+ggnorad(style = "default", norad_colors = TRUE)
 }
 \arguments{
-\item{style}{Plot style. One of "default", "biglight1", "biglight2", "bigdark".}
+\item{style}{Plot style. One of "default", "biglight1", "biglight2", "bigdark",
+"maplight", "mapdark", or "light"}
+
+\item{norad_colors}{Logical. Should Norad's color palettes be set as the default for the session? Default is TRUE.}
 }
 \description{
-Wrapper function to load norad theme
+Wrapper function to load Norad theme for ggplot2.
+Also sets Norad's discrete and continuous color palettes as the default for the session.
 }

@@ -12,7 +12,7 @@ scale_fill_norad_binned(
 )
 }
 \arguments{
-\item{palette}{Character name of palette in norad_palettes}
+\item{palette}{Character name of palette in norad_palettes. One of "greens", "browns", or "purples"}
 
 \item{direction}{Integer indicating whether the palette should be reversed}
 

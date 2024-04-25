@@ -1,10 +1,13 @@
-#' Wrapper function to load norad theme
+#' Wrapper function to load Norad theme for ggplot2.
+#' Also sets Norad's discrete and continuous color palettes as the default for the session.
 #'
-#'@param style Plot style. One of "default", "biglight1", "biglight2", "bigdark".
+#'@param style Plot style. One of "default", "biglight1", "biglight2", "bigdark",
+#' "maplight", "mapdark", or "light"
+#'@param norad_colors Logical. Should Norad's color palettes be set as the default for the session? Default is TRUE.
 #'@export
 #'@name ggnorad
 
-ggnorad <- function(style = "default") {
+ggnorad <- function(style = "default", norad_colors = TRUE) {
 
   showtext::showtext_auto()
 
@@ -50,5 +53,12 @@ ggnorad <- function(style = "default") {
     ggplot2::theme_set(theme_norad_map_light())
   } else if (style == "mapdark") {
     ggplot2::theme_set(theme_norad_map_dark())
+  }
+
+  if (norad_colors == TRUE) {
+    options(ggplot2.discrete.colour = scale_color_norad)
+    options(ggplot2.discrete.fill = scale_fill_norad)
+    options(ggplot2.continuous.colour = scale_color_norad_c)
+    options(ggplot2.continuous.fill = scale_fill_norad_c)
   }
 }

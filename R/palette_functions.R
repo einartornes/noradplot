@@ -94,22 +94,14 @@ norad_pal <- function(palette = "main", ...) {
 #'
 
 palette_gen <- function(palette = "main", direction = 1) {
-
   function(n) {
-
     if (n > length(norad_pal(palette)))
       warning("Not enough colors in this palette!")
-
     else {
-
       all_colors <- norad_pal(palette)
-
       all_colors <- unname(unlist(all_colors))
-
       all_colors <- if (direction >= 0) all_colors else rev(all_colors)
-
       color_list <- all_colors[1:n]
-
     }
   }
 }
@@ -121,16 +113,14 @@ palette_gen <- function(palette = "main", direction = 1) {
 #' @param ... Additional arguments passed to ggplot2::colorRampPalette()
 #'
 
-palette_gen_c <- function(palette = "main", direction = 1, ...) {
-
+palette_gen_c <- function(palette = "greens", direction = 1, ...) {
+  if (!palette %in% c("greens", "browns", "purples")) {
+    stop("Only 'greens', 'browns', and 'purples' palettes are supported")
+  }
   pal <- norad_pal(palette)
-
   pal <- if (direction >= 0) pal else rev(pal)
-
   grDevices::colorRampPalette(pal, ...)
-
 }
-
 
 #' Discrete color scale constructor for Norad colors
 #'
@@ -142,8 +132,8 @@ palette_gen_c <- function(palette = "main", direction = 1, ...) {
 
 scale_color_norad <- function(palette = "main", direction = 1, ...) {
   ggplot2::discrete_scale(
-    "color", "norad",
-    palette_gen(palette, direction),
+    aesthetics = "color",
+    palette = palette_gen(palette, direction),
     ...
   )
 }
@@ -159,47 +149,47 @@ scale_color_norad <- function(palette = "main", direction = 1, ...) {
 
 scale_fill_norad <- function(palette = "main", direction = 1, ...) {
   ggplot2::discrete_scale(
-    "fill", "norad",
-    palette_gen(palette, direction),
+    aesthetics = "fill",
+    palette = palette_gen(palette, direction),
     ...
   )
 }
 
 #' Continious color scale constructor for Norad colors
 #'
-#' @param palette Character name of palette in norad_palettes
+#' @param palette Character name of palette in norad_palettes. One of "greens", "browns", or "purples"
 #' @param direction Integer indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to ggplot2::scale_fill_gradientn()
 #' @export
 #'
 
 scale_color_norad_c <- function(palette = "greens", direction = 1, ...) {
-
-  pal <- palette_gen_c(palette = palette, direction = direction)
-
+  pal <- palette_gen_c(
+    palette = palette,
+    direction = direction
+  )
   ggplot2::scale_color_gradientn(colors = pal(256), ...)
-
 }
 
 #' Continuous fill scale constructor for Norad colors
 #'
-#' @param palette Character name of palette in norad_palettes
+#' @param palette Character name of palette in norad_palettes. One of "greens", "browns", or "purples"
 #' @param direction Integer indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to ggplot2::scale_fill_gradientn()
 #' @export
 #'
 
 scale_fill_norad_c <- function(palette = "greens", direction = 1, ...) {
-
-  pal <- palette_gen_c(palette = palette, direction = direction)
-
+  pal <- palette_gen_c(
+    palette = palette,
+    direction = direction
+  )
   ggplot2::scale_fill_gradientn(colors = pal(256), ...)
-
 }
 
 #' Binned fill scale constructor for Norad colors
 #'
-#' @param palette Character name of palette in norad_palettes
+#' @param palette Character name of palette in norad_palettes. One of "greens", "browns", or "purples"
 #' @param direction Integer indicating whether the palette should be reversed
 #' @param breaks How to break down continuous data into bins. Computed automatically by default.
 #' @param ... Additional arguments passed to ggplot2::scale_fill_steps()
@@ -207,16 +197,13 @@ scale_fill_norad_c <- function(palette = "greens", direction = 1, ...) {
 #'
 
 scale_fill_norad_binned <- function(palette = "greens", direction = 1, breaks = waiver(), ...) {
-
   pal <- norad_pal(palette)
-
   ggplot2::scale_fill_steps(low = pal[1], high = pal[2], ...)
-
 }
 
 #' Binned color scale constructor for Norad colors
 #'
-#' @param palette Character name of palette in norad_palettes
+#' @param palette Character name of palette in norad_palettes. One of "greens", "browns", or "purples"
 #' @param direction Integer indicating whether the palette should be reversed
 #' @param breaks How to break down continuous data into bins. Computed automatically by default.
 #' @param ... Additional arguments passed to ggplot2::scale_color_steps()
@@ -224,11 +211,8 @@ scale_fill_norad_binned <- function(palette = "greens", direction = 1, breaks = 
 #'
 
 scale_color_norad_binned <- function(palette = "greens", direction = 1, breaks = waiver(), ...) {
-
   pal <- norad_pal(palette)
-
   ggplot2::scale_color_steps(low = pal[1], high = pal[2], ...)
-
 }
 
 #' @examples
