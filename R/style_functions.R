@@ -63,8 +63,7 @@ theme_norad <- function() {
       axis.title.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
       axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
       axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
-      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
-      plot.margin = ggplot2::margin(15, 5.5, 15, 5.5, "pt")
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10))
     )
 }
 
@@ -166,7 +165,7 @@ theme_norad_big_light_1 <- function() {
       ),
       panel.background = ggplot2::element_blank(),
       # Plot margin
-      plot.margin = ggplot2::margin(1, 0, 1, 1, "cm")
+      plot.margin = ggplot2::margin(1, 1, 1, 1, "cm")
     )
 }
 
@@ -248,7 +247,7 @@ theme_norad_map_light <- function() {
   ggplot2::theme_void() +
     ggplot2::theme(
       plot.background = ggplot2::element_rect(fill = "#eff6ea", color = NA),
-      plot.margin = ggplot2::margin(3, 3, 3, 3, "mm"),
+      plot.margin = ggplot2::margin(1, 1, 1, 1, "cm"),
       legend.margin = ggplot2::margin(1, 1, 1, 1, "cm"),
       plot.caption = ggplot2::element_text(hjust = 0),
       text = ggplot2::element_text(
@@ -271,7 +270,7 @@ theme_norad_map_dark <- function() {
   ggplot2::theme_void() +
     ggplot2::theme(
       plot.background = ggplot2::element_rect(fill = "#1b3a1c", color = NA),
-      plot.margin = ggplot2::margin(3, 3, 3, 3, "mm"),
+      plot.margin = ggplot2::margin(1, 1, 1, 1, "cm"),
       legend.margin = ggplot2::margin(1, 1, 1, 1, "cm"),
       plot.caption = ggplot2::element_text(hjust = 0),
       text = ggplot2::element_text(

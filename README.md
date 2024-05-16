@@ -15,7 +15,6 @@ Norads colour palette and plot style for creating ggplot2 graphics.
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 library(noradplot)
 
 ggnorad("default")
@@ -85,8 +84,7 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
 
 ``` r
 library(sf)
-#> Warning: package 'sf' was built under R version 4.2.3
-#> Linking to GEOS 3.9.3, GDAL 3.5.2, PROJ 8.2.1; sf_use_s2() is TRUE
+#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
 
 ggnorad(style = "maplight")
 data(world_map)
@@ -100,6 +98,12 @@ ggplot(world_map) +
   guides(fill = guide_colorsteps(title = "Random number", show.limits = TRUE)) +
   theme(legend.position = c(0.15, 0.3),
         legend.title = element_text(margin = margin(0, 0, 5, 0, "pt")))
+#> Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+#> 3.5.0.
+#> ℹ Please use the `legend.position.inside` argument of `theme()` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 ![](man/figures/README-example5-1.svg)<!-- -->
