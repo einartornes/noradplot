@@ -21,6 +21,9 @@ Imports:
     showtext,
     sysfonts
 Suggests:
+    knitr,
+    rmarkdown,
     sf
 Depends: 
     R (>= 2.10)
+VignetteBuilder: knitr

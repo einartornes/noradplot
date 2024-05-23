@@ -15,7 +15,6 @@ Norads colour palette and plot style for creating ggplot2 graphics.
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.2.3
 library(noradplot)
 
 ggnorad("default")
@@ -42,7 +41,7 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
   geom_col(width = 0.9, fill = norad_cols("lightgreen")) +
   scale_y_continuous(expand = expansion(c(0, 0.1)), labels = scales::label_comma(big.mark = " ")) +
   geom_text(aes(x = incomegroup, y = 0, vjust = 0, label = paste0(format(round(gdppc, 1), big.mark = " "))),
-            size = 36, family = "Norad Display", color = norad_cols("green")) +
+            size = 26, family = "Norad Display", color = norad_cols("green")) +
   labs(title = "GDP per Capita – 2021", x = NULL, y = NULL,
        subtitle = "US Dollar*") +
   coord_cartesian(clip = "off") +
@@ -58,7 +57,7 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
   geom_col(width = 0.9, fill = norad_cols("orange")) +
   scale_y_continuous(expand = expansion(c(0, 0.1)), labels = scales::label_comma(big.mark = " ")) +
   geom_text(aes(x = incomegroup, y = 0, vjust = 0, label = paste0(format(round(gdppc, 1), big.mark = " "))),
-            size = 36, family = "Norad Display", color = norad_cols("blue")) +
+            size = 26, family = "Norad Display", color = norad_cols("blue")) +
   labs(title = "GDP per Capita – 2021", x = NULL, y = NULL,
        subtitle = "US Dollar*") +
   coord_cartesian(clip = "off") +
@@ -85,8 +84,7 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
 
 ``` r
 library(sf)
-#> Warning: package 'sf' was built under R version 4.2.3
-#> Linking to GEOS 3.9.3, GDAL 3.5.2, PROJ 8.2.1; sf_use_s2() is TRUE
+#> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
 
 ggnorad(style = "maplight")
 data(world_map)
@@ -99,7 +97,13 @@ ggplot(world_map) +
   scale_fill_norad_binned() +
   guides(fill = guide_colorsteps(title = "Random number", show.limits = TRUE)) +
   theme(legend.position = c(0.15, 0.3),
-        legend.title = element_text(margin = margin(0, 0, 5, 0, "pt")))
+        legend.title = element_text(margin = margin(0, 0, 10, 0, "pt")))
+#> Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+#> 3.5.0.
+#> ℹ Please use the `legend.position.inside` argument of `theme()` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 ![](man/figures/README-example5-1.svg)<!-- -->
@@ -114,7 +118,7 @@ ggplot(world_map) +
   scale_fill_norad_binned("browns") +
   guides(fill = guide_colorsteps(title = "Random number", show.limits = TRUE)) +
   theme(legend.position = c(0.15, 0.3),
-        legend.title = element_text(margin = margin(0, 0, 5, 0, "pt")))
+        legend.title = element_text(margin = margin(0, 0, 10, 0, "pt")))
 ```
 
 ![](man/figures/README-example6%7D-1.svg)<!-- -->

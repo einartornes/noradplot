@@ -16,35 +16,35 @@ theme_norad <- function() {
         size = 12
       ),
       # Plot title and subtitle
-      plot.title.position = "plot",
+      plot.title.position = "panel",
       plot.title = ggplot2::element_text(
-        family = serif,
-        size = 16,
+        family = sans,
+        #size = 16,
         face = "bold",
-        hjust = 0
+        #hjust = 0
       ),
       plot.subtitle = ggplot2::element_text(
         family = sans,
-        size = 14,
-        hjust = 0,
-        margin = ggplot2::margin(t = 5, b = 15)
+        #size = 14,
+        #hjust = 0,
+        #margin = ggplot2::margin(t = 5, b = 15)
       ),
       # Plot caption
-      plot.caption.position = "plot",
+      #plot.caption.position = "plot",
       plot.caption = ggplot2::element_text(
-        family = serif,
-        size = 12,
-        hjust = 0,
+        family = sans,
+        #size = 12,
+        #hjust = 0,
         margin = ggplot2::margin(t = 10)
       ),
       # Legend
       legend.text = ggplot2::element_text(
         family = sans,
-        size = 12
+        #size = 12
       ),
       legend.title = ggplot2::element_text(
         family = sans,
-        size = 12
+        #size = 12
       ),
       legend.position = "right",
       legend.justification = "top",
@@ -53,18 +53,18 @@ theme_norad <- function() {
       legend.background = ggplot2::element_blank(),
       # Axes
       axis.text = ggplot2::element_text(
-        size = 12,
+        #size = 12,
         color = "black"
       ),
       axis.title = ggplot2::element_text(
         family = sans,
-        size = 12
+        #size = 12
       ),
-      axis.title.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
-      axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
-      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
-      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
-      plot.margin = ggplot2::margin(15, 5.5, 15, 5.5, "pt")
+      axis.title.y = ggplot2::element_text(vjust = 1),
+      axis.title.x = ggplot2::element_text(hjust = 1),
+      #axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
+      #axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
+      #plot.margin = ggplot2::margin(15, 5.5, 15, 5.5, "pt")
     )
 }
 

@@ -1,0 +1,49 @@
+---
+title: "noradplot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{noradplot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "svglite"
+)
+```
+
+```{r setup}
+library(ggplot2)
+library(noradplot)
+```
+
+## Scatter plot
+```{r}
+#| fig.width: 6
+#| fig.height: 4
+ggnorad("default")
+
+ggplot(mpg, aes(displ, hwy, color = class)) + 
+  geom_point() +
+  scale_color_norad() +
+  labs(title = "This is the title",
+       subtitle = "This is the slightly longer subtitle",
+       caption = "This is the caption")
+```
+
+## Bar chart
+```{r}
+#| fig.width: 6
+#| fig.height: 4
+ggnorad("default")
+
+ggplot(mpg, aes(class)) + 
+  geom_bar() +
+  labs(title = "This is the title",
+       subtitle = "This is the slightly longer subtitle",
+       caption = "This is the caption")
+```
+
