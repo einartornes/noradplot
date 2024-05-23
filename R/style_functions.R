@@ -65,7 +65,8 @@ theme_norad <- function() {
       #axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
       #axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
       #plot.margin = ggplot2::margin(15, 5.5, 15, 5.5, "pt"),
-      strip.background = ggplot2::element_rect(fill = "transparent", linewidth = rel(1))
+      strip.background = ggplot2::element_rect(fill = "transparent", linewidth = rel(1)),
+      strip.clip = "off" # Prevents strip outline form being clipped
     )
 }
 
