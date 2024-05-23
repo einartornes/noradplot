@@ -60,7 +60,7 @@ theme_norad <- function() {
         family = sans,
         #size = 12
       ),
-      axis.title.y = ggplot2::element_text(vjust = 1),
+      axis.title.y = ggplot2::element_text(hjust = 1),
       axis.title.x = ggplot2::element_text(hjust = 1),
       #axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
       #axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
