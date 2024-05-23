@@ -60,5 +60,7 @@ ggnorad <- function(style = "default", norad_colors = TRUE) {
     options(ggplot2.discrete.fill = scale_fill_norad)
     options(ggplot2.continuous.colour = scale_color_norad_c)
     options(ggplot2.continuous.fill = scale_fill_norad_c)
+    options(ggplot2.binned.fill = scale_fill_norad_binned)
+    options(ggplot2.binned.colour = scale_color_norad_binned)
   }
 }
