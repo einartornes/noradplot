@@ -33,7 +33,6 @@ ggplot(mpg, aes(displ, hwy, color = class)) +
   geom_point() +
   scale_color_norad() +
   labs(title = "Displacement and highway mileage",
-       subtitle = "By vehicle class",
        caption = "Source: mpg dataset from ggplot2 package")
 ```
 
@@ -46,7 +45,6 @@ ggplot(mpg, aes(class)) +
   geom_bar() +
   scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
   labs(title = "Number of vehicles",
-       subtitle = "By vehicle class",
        caption = "Source: mpg dataset from ggplot2 package")
 ```
 
@@ -64,7 +62,6 @@ df |>
   geom_line() +
   scale_color_norad() +
   labs(title = "New Haven temperature",
-       subtitle = "Data for 1912-1971",
        caption = "Source: nhtemp dataset from datasets package")
 ```
 
@@ -77,7 +74,6 @@ ggplot(mpg, aes(displ, hwy, color = class)) +
   geom_point() +
   scale_color_norad() +
   labs(title = "Displacement and highway mileage",
-       subtitle = "By vehicle class",
        caption = "Source: mpg dataset from ggplot2 package") +
   facet_wrap(~class)
 ```
