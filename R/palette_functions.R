@@ -133,6 +133,7 @@ palette_gen_c <- function(palette = "greens", direction = 1, ...) {
 scale_color_norad <- function(palette = "main", direction = 1, ...) {
   ggplot2::discrete_scale(
     aesthetics = "color",
+    scale_name = "norad", # Deprecated in 3.5.0, but required for version <= 3.5.0, so keep for now
     palette = palette_gen(palette, direction),
     ...
   )
@@ -150,6 +151,7 @@ scale_color_norad <- function(palette = "main", direction = 1, ...) {
 scale_fill_norad <- function(palette = "main", direction = 1, ...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
+    scale_name = "norad", # Deprecated in 3.5.0, but required for version <= 3.5.0, so keep for now
     palette = palette_gen(palette, direction),
     ...
   )

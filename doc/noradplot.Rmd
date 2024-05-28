@@ -1,0 +1,83 @@
+---
+title: "noradplot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{noradplot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "svglite"
+)
+```
+
+```{r setup}
+library(ggplot2)
+library(noradplot)
+
+ggnorad("default")
+
+```
+
+## Scatter plot
+```{r}
+#| fig.width: 6
+#| fig.height: 4
+ggnorad("default")
+
+ggplot(mpg, aes(displ, hwy, color = class)) + 
+  geom_point() +
+  scale_color_norad() +
+  labs(title = "Displacement and highway mileage",
+       subtitle = "By vehicle class",
+       caption = "Source: mpg dataset from ggplot2 package")
+```
+
+## Bar chart
+```{r}
+#| fig.width: 6
+#| fig.height: 4
+
+ggplot(mpg, aes(class)) + 
+  geom_bar() +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+  labs(title = "Number of vehicles",
+       subtitle = "By vehicle class",
+       caption = "Source: mpg dataset from ggplot2 package")
+```
+
+## Line chart
+```{r, message=FALSE}
+#| fig.width: 6
+#| fig.height: 4
+
+library(dplyr)
+
+df <- tibble("temp" = as.numeric(nhtemp), "time" = as.numeric(time(nhtemp))) 
+
+df |> 
+  ggplot(aes(time, temp)) + 
+  geom_line() +
+  scale_color_norad() +
+  labs(title = "New Haven temperature",
+       subtitle = "Data for 1912-1971",
+       caption = "Source: nhtemp dataset from datasets package")
+```
+
+## Faceted plot
+```{r}
+#| fig.width: 6
+#| fig.height: 5
+
+ggplot(mpg, aes(displ, hwy, color = class)) + 
+  geom_point() +
+  scale_color_norad() +
+  labs(title = "Displacement and highway mileage",
+       subtitle = "By vehicle class",
+       caption = "Source: mpg dataset from ggplot2 package") +
+  facet_wrap(~class)
+```
