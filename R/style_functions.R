@@ -22,32 +22,22 @@ theme_norad <- function() {
       plot.title.position = "panel",
       plot.title = ggplot2::element_text(
         family = sans,
-        #size = 16,
         face = "bold",
-        #hjust = 0
       ),
       plot.subtitle = ggplot2::element_text(
         family = sans,
-        #size = 14,
-        #hjust = 0,
-        #margin = ggplot2::margin(t = 5, b = 15)
       ),
       # Plot caption
-      #plot.caption.position = "plot",
       plot.caption = ggplot2::element_text(
         family = sans,
-        #size = 12,
-        #hjust = 0,
         margin = ggplot2::margin(t = 10)
       ),
       # Legend
       legend.text = ggplot2::element_text(
         family = sans,
-        #size = 12
       ),
       legend.title = ggplot2::element_text(
         family = sans,
-        #size = 12
       ),
       legend.position = "right",
       legend.justification = "top",
@@ -56,18 +46,13 @@ theme_norad <- function() {
       legend.background = ggplot2::element_blank(),
       # Axes
       axis.text = ggplot2::element_text(
-        #size = 12,
         color = "black"
       ),
       axis.title = ggplot2::element_text(
         family = sans,
-        #size = 12
       ),
       axis.title.y = ggplot2::element_text(hjust = 1),
       axis.title.x = ggplot2::element_text(hjust = 1),
-      #axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 5)),
-      #axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10)),
-      #plot.margin = ggplot2::margin(15, 5.5, 15, 5.5, "pt"),
       strip.background = ggplot2::element_rect(fill = "transparent", linewidth = rel(1)),
       strip.clip = "off" # Prevents strip outline form being clipped
     )
@@ -129,12 +114,11 @@ theme_norad_big_light_1 <- function() {
       ),
       # Plot and panel background
       plot.background = ggplot2::element_rect(
-        fill = "#eff6ea",
-        #color = NA
+        fill = "#eff6ea"
       ),
       panel.background = ggplot2::element_blank(),
       # Plot margin
-      #plot.margin = ggplot2::margin(1, 0, 1, 1, "cm")
+      plot.margin = ggplot2::margin(5, 5, 5, 5, "mm")
     )
 }
 
@@ -219,8 +203,8 @@ theme_norad_map_light <- function() {
   ggplot2::theme_void() +
     ggplot2::theme(
       plot.background = ggplot2::element_rect(fill = "#eff6ea", color = NA),
-      #plot.margin = ggplot2::margin(3, 3, 3, 3, "mm"),
-      legend.margin = ggplot2::margin(1, 1, 1, 1, "cm"),
+      plot.margin = ggplot2::margin(5, 5, 5, 5, "mm"),
+      legend.margin = ggplot2::margin(5, 5, 5, 5, "mm"),
       plot.caption = ggplot2::element_text(hjust = 0),
       text = ggplot2::element_text(
         color = norad_cols("green"),

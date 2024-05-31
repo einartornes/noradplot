@@ -19,7 +19,8 @@ Imports:
     jsonlite,
     plotwidgets,
     showtext,
-    sysfonts
+    sysfonts,
+    svglite
 Suggests:
     knitr,
     rmarkdown,

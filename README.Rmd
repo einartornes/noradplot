@@ -98,7 +98,7 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
 
 ```{r example5}
 #| fig.width: 7
-#| fig.height: 6
+#| fig.height: 3
 
 library(sf)
 
@@ -117,8 +117,8 @@ ggplot(world_map) +
 ```
 
 ```{r example6}}
-#| fig.width: 4
-#| fig.height: 4
+#| fig.width: 7
+#| fig.height: 3
 
 library(sf)
 
