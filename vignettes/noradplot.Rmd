@@ -11,8 +11,9 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  dev = "svglite"
-)
+  dev = "svglite",
+  fig.showtext = TRUE
+  )
 ```
 
 ```{r setup}
@@ -27,6 +28,7 @@ ggnorad("default")
 ```{r}
 #| fig.width: 6
 #| fig.height: 4
+
 ggnorad("default")
 
 ggplot(mpg, aes(displ, hwy, color = class)) + 

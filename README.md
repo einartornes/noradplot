@@ -41,14 +41,17 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
   geom_col(width = 0.9, fill = norad_cols("lightgreen")) +
   scale_y_continuous(expand = expansion(c(0, 0.1)), labels = scales::label_comma(big.mark = " ")) +
   geom_text(aes(x = incomegroup, y = 0, vjust = 0, label = paste0(format(round(gdppc, 1), big.mark = " "))),
-            size = 26, family = "Norad Display", color = norad_cols("green")) +
+            size = 18, family = "Norad Display", color = norad_cols("green")) +
   labs(title = "GDP per Capita – 2021", x = NULL, y = NULL,
-       subtitle = "US Dollar*") +
-  coord_cartesian(clip = "off") +
-  theme(axis.line.x = element_blank(), axis.text.x = element_text(face = "bold"))
+       subtitle = "US Dollar*") 
 ```
 
 ![](man/figures/README-example2-1.svg)<!-- -->
+
+``` r
+  #coord_cartesian(clip = "off") 
+  #theme(axis.line.x = element_blank(), axis.text.x = element_text(face = "bold"))
+```
 
 ``` r
 ggnorad(style = "biglight2")
@@ -57,11 +60,9 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
   geom_col(width = 0.9, fill = norad_cols("orange")) +
   scale_y_continuous(expand = expansion(c(0, 0.1)), labels = scales::label_comma(big.mark = " ")) +
   geom_text(aes(x = incomegroup, y = 0, vjust = 0, label = paste0(format(round(gdppc, 1), big.mark = " "))),
-            size = 26, family = "Norad Display", color = norad_cols("blue")) +
+            size = 18, family = "Norad Display", color = norad_cols("blue")) +
   labs(title = "GDP per Capita – 2021", x = NULL, y = NULL,
-       subtitle = "US Dollar*") +
-  coord_cartesian(clip = "off") +
-  theme(axis.line.x = element_blank(), axis.text.x = element_text(face = "bold"))
+       subtitle = "US Dollar*")
 ```
 
 ![](man/figures/README-example3-1.svg)<!-- -->
@@ -70,14 +71,15 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
 ggnorad(style = "bigdark")
 #> Warning in ggnorad(style = "bigdark"): This style is high contrast. Use
 #> additional visual elements with care.
+```
+
+``` r
 
 ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) + 
   geom_col(width = 0.9, fill = norad_cols("lightgreen")) +
   scale_y_continuous(expand = expansion(c(0, 0.1)), labels = scales::label_comma(big.mark = " ")) +
   labs(title = "GDP per Capita – 2021", x = NULL, y = NULL,
-       subtitle = "US Dollar*") +
-  coord_cartesian(clip = "off") +
-  theme(axis.line.x = element_blank(), axis.text.x = element_text(face = "bold"))
+       subtitle = "US Dollar*")
 ```
 
 ![](man/figures/README-example4-1.svg)<!-- -->
@@ -85,6 +87,9 @@ ggplot(gdppc, aes(reorder(incomegroup, -gdppc), gdppc)) +
 ``` r
 library(sf)
 #> Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
+```
+
+``` r
 
 ggnorad(style = "maplight")
 data(world_map)
@@ -96,14 +101,7 @@ ggplot(world_map) +
   geom_sf(aes(fill = rand)) +
   scale_fill_norad_binned() +
   guides(fill = guide_colorsteps(title = "Random number", show.limits = TRUE)) +
-  theme(legend.position = c(0.15, 0.3),
-        legend.title = element_text(margin = margin(0, 0, 10, 0, "pt")))
-#> Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
-#> 3.5.0.
-#> ℹ Please use the `legend.position.inside` argument of `theme()` instead.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
+  theme(legend.position = "inside", legend.position.inside = c(0.10, 0.3))
 ```
 
 ![](man/figures/README-example5-1.svg)<!-- -->
@@ -117,8 +115,7 @@ ggplot(world_map) +
   geom_sf(aes(fill = rand)) + 
   scale_fill_norad_binned("browns") +
   guides(fill = guide_colorsteps(title = "Random number", show.limits = TRUE)) +
-  theme(legend.position = c(0.15, 0.3),
-        legend.title = element_text(margin = margin(0, 0, 10, 0, "pt")))
+  theme(legend.position = "inside", legend.position.inside = c(0.10, 0.3))
 ```
 
 ![](man/figures/README-example6%7D-1.svg)<!-- -->
