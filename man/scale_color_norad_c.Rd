@@ -7,7 +7,7 @@
 scale_color_norad_c(palette = "greens", direction = 1, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in norad_palettes}
+\item{palette}{Character name of palette in norad_palettes. One of "greens", "browns", or "purples"}
 
 \item{direction}{Integer indicating whether the palette should be reversed}
 

@@ -4,7 +4,7 @@
 \alias{palette_gen_c}
 \title{Helper function for continuous color scales}
 \usage{
-palette_gen_c(palette = "main", direction = 1, ...)
+palette_gen_c(palette = "greens", direction = 1, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in norad_palettes}
