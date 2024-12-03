@@ -19,8 +19,12 @@ Imports:
     jsonlite,
     plotwidgets,
     showtext,
-    sysfonts
+    sysfonts,
+    svglite
 Suggests:
+    knitr,
+    rmarkdown,
     sf
 Depends: 
     R (>= 2.10)
+VignetteBuilder: knitr
